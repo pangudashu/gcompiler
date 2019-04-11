@@ -1,0 +1,53 @@
+syntax = "proto2";
+
+package gphp;
+
+
+message Zval
+{
+    enum Type
+    {
+        TYPE_UNDEF        = 0;
+        TYPE_NULL         = 1;
+        TYPE_BOOL         = 2;
+        TYPE_LONG         = 4;
+        TYPE_DOUBLE       = 5;
+        TYPE_STRING       = 6;
+        TYPE_ARRAY        = 7;
+        TYPE_OBJECT       = 8;
+        TYPE_RESOURCE     = 9;
+        TYPE_REFERENCE    = 10;
+    };
+    
+    message Value
+    {
+        optional bool       bval    = 1;
+        optional int64      lval    = 2;
+        optional double     dval    = 3;
+        optional string     str     = 4;
+        optional HashTable  arr     = 5;
+    };
+
+    required Type   type    = 1;
+    required Value  value   = 2;
+}
+
+message HashTable
+{
+    message Item
+    {
+        enum KeyType
+        {
+            KEYTYPE_STR  = 1;
+            KEYTYPE_NUM  = 2;
+        };
+        required KeyType    key_type    = 1;
+        optional string     str_key     = 2;
+        optional uint64     num_key     = 3;
+        required Zval       val         = 4;
+    };
+
+    repeated Item   items = 1;
+}
+
+

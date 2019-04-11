@@ -1,0 +1,7 @@
+#!/bin/sh
+
+mkdir out_go
+
+protoc --proto_path=./ --go_out=out_go zend_script.proto
+protoc --proto_path=./ --go_out=out_go zend_op_array.proto
+protoc --proto_path=./ --go_out=out_go zend_types.proto

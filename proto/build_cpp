@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ ! -d out_cpp ];then
+    mkdir out_cpp
+fi
+
+protoc --proto_path=./ --cpp_out=out_cpp zend_script.proto
+protoc --proto_path=./ --cpp_out=out_cpp zend_op_array.proto
+protoc --proto_path=./ --cpp_out=out_cpp zend_types.proto
