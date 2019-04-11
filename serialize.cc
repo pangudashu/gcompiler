@@ -210,10 +210,10 @@ int serialize_op_array(gphp::ZendOpArray *pb_op_array, zend_op_array *op_array) 
 	return SUCCESS;
 } /*}}}*/
 
-int zend_script_serialize(const zend_script *script)
+const char *zend_script_serialize(const zend_script *script, uint32_t *pb_data_size)
 {
 #ifdef IS_DEBUG
-	printf("compile file:%s\n", ZSTR_VAL(script->filename));
+	std::cout << "compile file: " << ZSTR_VAL(script->filename) << "\n";
 #endif
 
 	gphp::ZendScript new_script;
@@ -222,7 +222,7 @@ int zend_script_serialize(const zend_script *script)
 	//1) op array
 	gphp::ZendOpArray *pb_op_array = new_script.mutable_main_op_array();
 	if (serialize_op_array(pb_op_array, script->main_op_array) != SUCCESS) {
-		return FAILURE;
+		return NULL;
 	}
 
 	//2) function table
@@ -232,7 +232,14 @@ int zend_script_serialize(const zend_script *script)
 	//4) constants
 	//
 	
-	return SUCCESS;
+	std::string pb_data;
+	if (!new_script.SerializeToString(&pb_data)) {
+		return NULL;
+	}
+
+	*pb_data_size = pb_data.size();
+
+	return pb_data.c_str();
 }
 
 END_EXTERN_C()

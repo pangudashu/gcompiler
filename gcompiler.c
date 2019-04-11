@@ -71,6 +71,7 @@ static zend_op_array *gcompile(zend_string *file_path)
 PHP_FUNCTION(gcompile)
 {
 	zend_string *file_path;
+	const char *serialize_data = NULL;
 
 	ZEND_PARSE_PARAMETERS_START(1, 1)
 		Z_PARAM_STR(file_path)
@@ -106,9 +107,10 @@ PHP_FUNCTION(gcompile)
 	EG(class_table) = CG(class_table) = orig_class_table;
 	EG(user_error_handler) = orig_user_error_handler;
 
-	//todo
+	/* compile */
+	uint32_t serialize_data_size = 0;
 	if (script.main_op_array) {
-		zend_script_serialize(&script);
+		serialize_data = zend_script_serialize(&script, &serialize_data_size);
 	}
 	
 	if (script.main_op_array) {
@@ -119,6 +121,13 @@ PHP_FUNCTION(gcompile)
 	zend_hash_destroy(&script.function_table);
 	zend_hash_destroy(&script.class_table);
 	zend_hash_destroy(&script.zend_constant);
+
+	zend_string *res;
+	if (serialize_data) {
+		RETURN_STRINGL(serialize_data, serialize_data_size);
+	} else {
+		RETURN_FALSE;
+	}
 }
 
 /* {{{ PHP_MINIT_FUNCTION
