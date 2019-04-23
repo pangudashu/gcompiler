@@ -219,6 +219,7 @@ message ZendOpArray
 {
     repeated Opline opcodes     = 1; //指令数组
     repeated Zval   literals    = 2; //字面量数组
+    required uint32 var_size    = 3;
 }
 
 

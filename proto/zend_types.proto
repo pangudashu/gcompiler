@@ -43,7 +43,7 @@ message HashTable
         };
         required KeyType    key_type    = 1;
         optional string     str_key     = 2;
-        optional uint64     num_key     = 3;
+        optional int64      num_key     = 3;
         required Zval       val         = 4;
     };
 

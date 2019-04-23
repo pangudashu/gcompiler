@@ -15,6 +15,8 @@ $php_file_list = array();
 
 scan_dir($app_dir);
 
+print_r($app_dir);
+
 foreach($php_file_list as $file){
     try{
         $data = gcompile($file);

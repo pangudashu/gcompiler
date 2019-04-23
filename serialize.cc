@@ -189,6 +189,8 @@ int serialize_op_array(gphp::ZendOpArray *pb_op_array, zend_op_array *op_array) 
 #endif
 	}
 
+	pb_op_array->set_var_size(op_array->last_var + op_array->T);
+
 	//2)literals
 	gphp::Zval *pb_zval;
 

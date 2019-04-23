@@ -616,14 +616,24 @@ class ZendOpArray : public ::google::protobuf::Message /* @@protoc_insertion_poi
   const ::google::protobuf::RepeatedPtrField< ::gphp::Zval >&
       literals() const;
 
+  // required uint32 var_size = 3;
+  bool has_var_size() const;
+  void clear_var_size();
+  static const int kVarSizeFieldNumber = 3;
+  ::google::protobuf::uint32 var_size() const;
+  void set_var_size(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:gphp.ZendOpArray)
  private:
+  void set_has_var_size();
+  void clear_has_var_size();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::gphp::Opline > opcodes_;
   ::google::protobuf::RepeatedPtrField< ::gphp::Zval > literals_;
+  ::google::protobuf::uint32 var_size_;
   friend struct protobuf_zend_5fop_5farray_2eproto::TableStruct;
 };
 // ===================================================================
@@ -920,6 +930,30 @@ inline const ::google::protobuf::RepeatedPtrField< ::gphp::Zval >&
 ZendOpArray::literals() const {
   // @@protoc_insertion_point(field_list:gphp.ZendOpArray.literals)
   return literals_;
+}
+
+// required uint32 var_size = 3;
+inline bool ZendOpArray::has_var_size() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ZendOpArray::set_has_var_size() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ZendOpArray::clear_has_var_size() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ZendOpArray::clear_var_size() {
+  var_size_ = 0u;
+  clear_has_var_size();
+}
+inline ::google::protobuf::uint32 ZendOpArray::var_size() const {
+  // @@protoc_insertion_point(field_get:gphp.ZendOpArray.var_size)
+  return var_size_;
+}
+inline void ZendOpArray::set_var_size(::google::protobuf::uint32 value) {
+  set_has_var_size();
+  var_size_ = value;
+  // @@protoc_insertion_point(field_set:gphp.ZendOpArray.var_size)
 }
 
 #ifdef __GNUC__

@@ -85,12 +85,14 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZendOpArray, opcodes_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZendOpArray, literals_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZendOpArray, var_size_),
   ~0u,
   ~0u,
+  0,
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 14, sizeof(Opline)},
-  { 23, 30, sizeof(ZendOpArray)},
+  { 23, 31, sizeof(ZendOpArray)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -147,93 +149,93 @@ void AddDescriptorsImpl() {
       "\030\006 \001(\r\022(\n\013result_type\030\007 \001(\0162\023.gphp.Oplin"
       "e.OpType\022\026\n\016extended_value\030\010 \001(\r\022\016\n\006line"
       "no\030\t \001(\r\"=\n\006OpType\022\t\n\005CONST\020\001\022\013\n\007TMP_VAR"
-      "\020\002\022\007\n\003VAR\020\004\022\n\n\006UNUSED\020\010\022\006\n\002CV\020\020\"J\n\013ZendO"
+      "\020\002\022\007\n\003VAR\020\004\022\n\n\006UNUSED\020\010\022\006\n\002CV\020\020\"\\\n\013ZendO"
       "pArray\022\035\n\007opcodes\030\001 \003(\0132\014.gphp.Opline\022\034\n"
-      "\010literals\030\002 \003(\0132\n.gphp.Zval*\227\031\n\006Opcode\022\007"
-      "\n\003NOP\020\000\022\007\n\003ADD\020\001\022\007\n\003SUB\020\002\022\007\n\003MUL\020\003\022\007\n\003DI"
-      "V\020\004\022\007\n\003MOD\020\005\022\006\n\002SL\020\006\022\006\n\002SR\020\007\022\n\n\006CONCAT\020\010"
-      "\022\t\n\005BW_OR\020\t\022\n\n\006BW_AND\020\n\022\n\n\006BW_XOR\020\013\022\n\n\006B"
-      "W_NOT\020\014\022\014\n\010BOOL_NOT\020\r\022\014\n\010BOOL_XOR\020\016\022\020\n\014I"
-      "S_IDENTICAL\020\017\022\024\n\020IS_NOT_IDENTICAL\020\020\022\014\n\010I"
-      "S_EQUAL\020\021\022\020\n\014IS_NOT_EQUAL\020\022\022\016\n\nIS_SMALLE"
-      "R\020\023\022\027\n\023IS_SMALLER_OR_EQUAL\020\024\022\010\n\004CAST\020\025\022\r"
-      "\n\tQM_ASSIGN\020\026\022\016\n\nASSIGN_ADD\020\027\022\016\n\nASSIGN_"
-      "SUB\020\030\022\016\n\nASSIGN_MUL\020\031\022\016\n\nASSIGN_DIV\020\032\022\016\n"
-      "\nASSIGN_MOD\020\033\022\r\n\tASSIGN_SL\020\034\022\r\n\tASSIGN_S"
-      "R\020\035\022\021\n\rASSIGN_CONCAT\020\036\022\020\n\014ASSIGN_BW_OR\020\037"
-      "\022\021\n\rASSIGN_BW_AND\020 \022\021\n\rASSIGN_BW_XOR\020!\022\013"
-      "\n\007PRE_INC\020\"\022\013\n\007PRE_DEC\020#\022\014\n\010POST_INC\020$\022\014"
-      "\n\010POST_DEC\020%\022\n\n\006ASSIGN\020&\022\016\n\nASSIGN_REF\020\'"
-      "\022\010\n\004ECHO\020(\022\024\n\020GENERATOR_CREATE\020)\022\007\n\003JMP\020"
-      "*\022\010\n\004JMPZ\020+\022\t\n\005JMPNZ\020,\022\n\n\006JMPZNZ\020-\022\013\n\007JM"
-      "PZ_EX\020.\022\014\n\010JMPNZ_EX\020/\022\010\n\004CASE\0200\022\r\n\tCHECK"
-      "_VAR\0201\022\026\n\022SEND_VAR_NO_REF_EX\0202\022\014\n\010MAKE_R"
-      "EF\0203\022\010\n\004BOOL\0204\022\017\n\013FAST_CONCAT\0205\022\r\n\tROPE_"
-      "INIT\0206\022\014\n\010ROPE_ADD\0207\022\014\n\010ROPE_END\0208\022\021\n\rBE"
-      "GIN_SILENCE\0209\022\017\n\013END_SILENCE\020:\022\026\n\022INIT_F"
-      "CALL_BY_NAME\020;\022\014\n\010DO_FCALL\020<\022\016\n\nINIT_FCA"
-      "LL\020=\022\n\n\006RETURN\020>\022\010\n\004RECV\020\?\022\r\n\tRECV_INIT\020"
-      "@\022\014\n\010SEND_VAL\020A\022\017\n\013SEND_VAR_EX\020B\022\014\n\010SEND"
-      "_REF\020C\022\007\n\003NEW\020D\022\031\n\025INIT_NS_FCALL_BY_NAME"
-      "\020E\022\010\n\004FREE\020F\022\016\n\nINIT_ARRAY\020G\022\025\n\021ADD_ARRA"
-      "Y_ELEMENT\020H\022\023\n\017INCLUDE_OR_EVAL\020I\022\r\n\tUNSE"
-      "T_VAR\020J\022\r\n\tUNSET_DIM\020K\022\r\n\tUNSET_OBJ\020L\022\016\n"
-      "\nFE_RESET_R\020M\022\016\n\nFE_FETCH_R\020N\022\010\n\004EXIT\020O\022"
-      "\013\n\007FETCH_R\020P\022\017\n\013FETCH_DIM_R\020Q\022\017\n\013FETCH_O"
-      "BJ_R\020R\022\013\n\007FETCH_W\020S\022\017\n\013FETCH_DIM_W\020T\022\017\n\013"
-      "FETCH_OBJ_W\020U\022\014\n\010FETCH_RW\020V\022\020\n\014FETCH_DIM"
-      "_RW\020W\022\020\n\014FETCH_OBJ_RW\020X\022\014\n\010FETCH_IS\020Y\022\020\n"
-      "\014FETCH_DIM_IS\020Z\022\020\n\014FETCH_OBJ_IS\020[\022\022\n\016FET"
-      "CH_FUNC_ARG\020\\\022\026\n\022FETCH_DIM_FUNC_ARG\020]\022\026\n"
-      "\022FETCH_OBJ_FUNC_ARG\020^\022\017\n\013FETCH_UNSET\020_\022\023"
-      "\n\017FETCH_DIM_UNSET\020`\022\023\n\017FETCH_OBJ_UNSET\020a"
-      "\022\016\n\nFETCH_LIST\020b\022\022\n\016FETCH_CONSTANT\020c\022\014\n\010"
-      "EXT_STMT\020e\022\023\n\017EXT_FCALL_BEGIN\020f\022\021\n\rEXT_F"
-      "CALL_END\020g\022\013\n\007EXT_NOP\020h\022\t\n\005TICKS\020i\022\023\n\017SE"
-      "ND_VAR_NO_REF\020j\022\t\n\005CATCH\020k\022\t\n\005THROW\020l\022\017\n"
-      "\013FETCH_CLASS\020m\022\t\n\005CLONE\020n\022\021\n\rRETURN_BY_R"
-      "EF\020o\022\024\n\020INIT_METHOD_CALL\020p\022\033\n\027INIT_STATI"
-      "C_METHOD_CALL\020q\022\025\n\021ISSET_ISEMPTY_VAR\020r\022\031"
-      "\n\025ISSET_ISEMPTY_DIM_OBJ\020s\022\017\n\013SEND_VAL_EX"
-      "\020t\022\014\n\010SEND_VAR\020u\022\022\n\016INIT_USER_CALL\020v\022\016\n\n"
-      "SEND_ARRAY\020w\022\r\n\tSEND_USER\020x\022\n\n\006STRLEN\020y\022"
-      "\013\n\007DEFINED\020z\022\016\n\nTYPE_CHECK\020{\022\026\n\022VERIFY_R"
-      "ETURN_TYPE\020|\022\017\n\013FE_RESET_RW\020}\022\017\n\013FE_FETC"
-      "H_RW\020~\022\013\n\007FE_FREE\020\177\022\026\n\021INIT_DYNAMIC_CALL"
-      "\020\200\001\022\r\n\010DO_ICALL\020\201\001\022\r\n\010DO_UCALL\020\202\001\022\025\n\020DO_"
-      "FCALL_BY_NAME\020\203\001\022\020\n\013PRE_INC_OBJ\020\204\001\022\020\n\013PR"
-      "E_DEC_OBJ\020\205\001\022\021\n\014POST_INC_OBJ\020\206\001\022\021\n\014POST_"
-      "DEC_OBJ\020\207\001\022\017\n\nASSIGN_OBJ\020\210\001\022\014\n\007OP_DATA\020\211"
-      "\001\022\017\n\nINSTANCEOF\020\212\001\022\022\n\rDECLARE_CLASS\020\213\001\022\034"
-      "\n\027DECLARE_INHERITED_CLASS\020\214\001\022\025\n\020DECLARE_"
-      "FUNCTION\020\215\001\022\017\n\nYIELD_FROM\020\216\001\022\022\n\rDECLARE_"
-      "CONST\020\217\001\022\022\n\rADD_INTERFACE\020\220\001\022$\n\037DECLARE_"
-      "INHERITED_CLASS_DELAYED\020\221\001\022\032\n\025VERIFY_ABS"
-      "TRACT_CLASS\020\222\001\022\017\n\nASSIGN_DIM\020\223\001\022\033\n\026ISSET"
-      "_ISEMPTY_PROP_OBJ\020\224\001\022\025\n\020HANDLE_EXCEPTION"
-      "\020\225\001\022\020\n\013USER_OPCODE\020\226\001\022\021\n\014ASSERT_CHECK\020\227\001"
-      "\022\014\n\007JMP_SET\020\230\001\022\034\n\027DECLARE_LAMBDA_FUNCTIO"
-      "N\020\231\001\022\016\n\tADD_TRAIT\020\232\001\022\020\n\013BIND_TRAITS\020\233\001\022\r"
-      "\n\010SEPARATE\020\234\001\022\025\n\020FETCH_CLASS_NAME\020\235\001\022\024\n\017"
-      "CALL_TRAMPOLINE\020\236\001\022\026\n\021DISCARD_EXCEPTION\020"
-      "\237\001\022\n\n\005YIELD\020\240\001\022\025\n\020GENERATOR_RETURN\020\241\001\022\016\n"
-      "\tFAST_CALL\020\242\001\022\r\n\010FAST_RET\020\243\001\022\022\n\rRECV_VAR"
-      "IADIC\020\244\001\022\020\n\013SEND_UNPACK\020\245\001\022\010\n\003POW\020\246\001\022\017\n\n"
-      "ASSIGN_POW\020\247\001\022\020\n\013BIND_GLOBAL\020\250\001\022\r\n\010COALE"
-      "SCE\020\251\001\022\016\n\tSPACESHIP\020\252\001\022\027\n\022DECLARE_ANON_C"
-      "LASS\020\253\001\022!\n\034DECLARE_ANON_INHERITED_CLASS\020"
-      "\254\001\022\030\n\023FETCH_STATIC_PROP_R\020\255\001\022\030\n\023FETCH_ST"
-      "ATIC_PROP_W\020\256\001\022\031\n\024FETCH_STATIC_PROP_RW\020\257"
-      "\001\022\031\n\024FETCH_STATIC_PROP_IS\020\260\001\022\037\n\032FETCH_ST"
-      "ATIC_PROP_FUNC_ARG\020\261\001\022\034\n\027FETCH_STATIC_PR"
-      "OP_UNSET\020\262\001\022\026\n\021UNSET_STATIC_PROP\020\263\001\022\036\n\031I"
-      "SSET_ISEMPTY_STATIC_PROP\020\264\001\022\031\n\024FETCH_CLA"
-      "SS_CONSTANT\020\265\001\022\021\n\014BIND_LEXICAL\020\266\001\022\020\n\013BIN"
-      "D_STATIC\020\267\001\022\017\n\nFETCH_THIS\020\270\001\022\027\n\022ISSET_IS"
-      "EMPTY_THIS\020\272\001"
+      "\010literals\030\002 \003(\0132\n.gphp.Zval\022\020\n\010var_size\030"
+      "\003 \002(\r*\227\031\n\006Opcode\022\007\n\003NOP\020\000\022\007\n\003ADD\020\001\022\007\n\003SU"
+      "B\020\002\022\007\n\003MUL\020\003\022\007\n\003DIV\020\004\022\007\n\003MOD\020\005\022\006\n\002SL\020\006\022\006"
+      "\n\002SR\020\007\022\n\n\006CONCAT\020\010\022\t\n\005BW_OR\020\t\022\n\n\006BW_AND\020"
+      "\n\022\n\n\006BW_XOR\020\013\022\n\n\006BW_NOT\020\014\022\014\n\010BOOL_NOT\020\r\022"
+      "\014\n\010BOOL_XOR\020\016\022\020\n\014IS_IDENTICAL\020\017\022\024\n\020IS_NO"
+      "T_IDENTICAL\020\020\022\014\n\010IS_EQUAL\020\021\022\020\n\014IS_NOT_EQ"
+      "UAL\020\022\022\016\n\nIS_SMALLER\020\023\022\027\n\023IS_SMALLER_OR_E"
+      "QUAL\020\024\022\010\n\004CAST\020\025\022\r\n\tQM_ASSIGN\020\026\022\016\n\nASSIG"
+      "N_ADD\020\027\022\016\n\nASSIGN_SUB\020\030\022\016\n\nASSIGN_MUL\020\031\022"
+      "\016\n\nASSIGN_DIV\020\032\022\016\n\nASSIGN_MOD\020\033\022\r\n\tASSIG"
+      "N_SL\020\034\022\r\n\tASSIGN_SR\020\035\022\021\n\rASSIGN_CONCAT\020\036"
+      "\022\020\n\014ASSIGN_BW_OR\020\037\022\021\n\rASSIGN_BW_AND\020 \022\021\n"
+      "\rASSIGN_BW_XOR\020!\022\013\n\007PRE_INC\020\"\022\013\n\007PRE_DEC"
+      "\020#\022\014\n\010POST_INC\020$\022\014\n\010POST_DEC\020%\022\n\n\006ASSIGN"
+      "\020&\022\016\n\nASSIGN_REF\020\'\022\010\n\004ECHO\020(\022\024\n\020GENERATO"
+      "R_CREATE\020)\022\007\n\003JMP\020*\022\010\n\004JMPZ\020+\022\t\n\005JMPNZ\020,"
+      "\022\n\n\006JMPZNZ\020-\022\013\n\007JMPZ_EX\020.\022\014\n\010JMPNZ_EX\020/\022"
+      "\010\n\004CASE\0200\022\r\n\tCHECK_VAR\0201\022\026\n\022SEND_VAR_NO_"
+      "REF_EX\0202\022\014\n\010MAKE_REF\0203\022\010\n\004BOOL\0204\022\017\n\013FAST"
+      "_CONCAT\0205\022\r\n\tROPE_INIT\0206\022\014\n\010ROPE_ADD\0207\022\014"
+      "\n\010ROPE_END\0208\022\021\n\rBEGIN_SILENCE\0209\022\017\n\013END_S"
+      "ILENCE\020:\022\026\n\022INIT_FCALL_BY_NAME\020;\022\014\n\010DO_F"
+      "CALL\020<\022\016\n\nINIT_FCALL\020=\022\n\n\006RETURN\020>\022\010\n\004RE"
+      "CV\020\?\022\r\n\tRECV_INIT\020@\022\014\n\010SEND_VAL\020A\022\017\n\013SEN"
+      "D_VAR_EX\020B\022\014\n\010SEND_REF\020C\022\007\n\003NEW\020D\022\031\n\025INI"
+      "T_NS_FCALL_BY_NAME\020E\022\010\n\004FREE\020F\022\016\n\nINIT_A"
+      "RRAY\020G\022\025\n\021ADD_ARRAY_ELEMENT\020H\022\023\n\017INCLUDE"
+      "_OR_EVAL\020I\022\r\n\tUNSET_VAR\020J\022\r\n\tUNSET_DIM\020K"
+      "\022\r\n\tUNSET_OBJ\020L\022\016\n\nFE_RESET_R\020M\022\016\n\nFE_FE"
+      "TCH_R\020N\022\010\n\004EXIT\020O\022\013\n\007FETCH_R\020P\022\017\n\013FETCH_"
+      "DIM_R\020Q\022\017\n\013FETCH_OBJ_R\020R\022\013\n\007FETCH_W\020S\022\017\n"
+      "\013FETCH_DIM_W\020T\022\017\n\013FETCH_OBJ_W\020U\022\014\n\010FETCH"
+      "_RW\020V\022\020\n\014FETCH_DIM_RW\020W\022\020\n\014FETCH_OBJ_RW\020"
+      "X\022\014\n\010FETCH_IS\020Y\022\020\n\014FETCH_DIM_IS\020Z\022\020\n\014FET"
+      "CH_OBJ_IS\020[\022\022\n\016FETCH_FUNC_ARG\020\\\022\026\n\022FETCH"
+      "_DIM_FUNC_ARG\020]\022\026\n\022FETCH_OBJ_FUNC_ARG\020^\022"
+      "\017\n\013FETCH_UNSET\020_\022\023\n\017FETCH_DIM_UNSET\020`\022\023\n"
+      "\017FETCH_OBJ_UNSET\020a\022\016\n\nFETCH_LIST\020b\022\022\n\016FE"
+      "TCH_CONSTANT\020c\022\014\n\010EXT_STMT\020e\022\023\n\017EXT_FCAL"
+      "L_BEGIN\020f\022\021\n\rEXT_FCALL_END\020g\022\013\n\007EXT_NOP\020"
+      "h\022\t\n\005TICKS\020i\022\023\n\017SEND_VAR_NO_REF\020j\022\t\n\005CAT"
+      "CH\020k\022\t\n\005THROW\020l\022\017\n\013FETCH_CLASS\020m\022\t\n\005CLON"
+      "E\020n\022\021\n\rRETURN_BY_REF\020o\022\024\n\020INIT_METHOD_CA"
+      "LL\020p\022\033\n\027INIT_STATIC_METHOD_CALL\020q\022\025\n\021ISS"
+      "ET_ISEMPTY_VAR\020r\022\031\n\025ISSET_ISEMPTY_DIM_OB"
+      "J\020s\022\017\n\013SEND_VAL_EX\020t\022\014\n\010SEND_VAR\020u\022\022\n\016IN"
+      "IT_USER_CALL\020v\022\016\n\nSEND_ARRAY\020w\022\r\n\tSEND_U"
+      "SER\020x\022\n\n\006STRLEN\020y\022\013\n\007DEFINED\020z\022\016\n\nTYPE_C"
+      "HECK\020{\022\026\n\022VERIFY_RETURN_TYPE\020|\022\017\n\013FE_RES"
+      "ET_RW\020}\022\017\n\013FE_FETCH_RW\020~\022\013\n\007FE_FREE\020\177\022\026\n"
+      "\021INIT_DYNAMIC_CALL\020\200\001\022\r\n\010DO_ICALL\020\201\001\022\r\n\010"
+      "DO_UCALL\020\202\001\022\025\n\020DO_FCALL_BY_NAME\020\203\001\022\020\n\013PR"
+      "E_INC_OBJ\020\204\001\022\020\n\013PRE_DEC_OBJ\020\205\001\022\021\n\014POST_I"
+      "NC_OBJ\020\206\001\022\021\n\014POST_DEC_OBJ\020\207\001\022\017\n\nASSIGN_O"
+      "BJ\020\210\001\022\014\n\007OP_DATA\020\211\001\022\017\n\nINSTANCEOF\020\212\001\022\022\n\r"
+      "DECLARE_CLASS\020\213\001\022\034\n\027DECLARE_INHERITED_CL"
+      "ASS\020\214\001\022\025\n\020DECLARE_FUNCTION\020\215\001\022\017\n\nYIELD_F"
+      "ROM\020\216\001\022\022\n\rDECLARE_CONST\020\217\001\022\022\n\rADD_INTERF"
+      "ACE\020\220\001\022$\n\037DECLARE_INHERITED_CLASS_DELAYE"
+      "D\020\221\001\022\032\n\025VERIFY_ABSTRACT_CLASS\020\222\001\022\017\n\nASSI"
+      "GN_DIM\020\223\001\022\033\n\026ISSET_ISEMPTY_PROP_OBJ\020\224\001\022\025"
+      "\n\020HANDLE_EXCEPTION\020\225\001\022\020\n\013USER_OPCODE\020\226\001\022"
+      "\021\n\014ASSERT_CHECK\020\227\001\022\014\n\007JMP_SET\020\230\001\022\034\n\027DECL"
+      "ARE_LAMBDA_FUNCTION\020\231\001\022\016\n\tADD_TRAIT\020\232\001\022\020"
+      "\n\013BIND_TRAITS\020\233\001\022\r\n\010SEPARATE\020\234\001\022\025\n\020FETCH"
+      "_CLASS_NAME\020\235\001\022\024\n\017CALL_TRAMPOLINE\020\236\001\022\026\n\021"
+      "DISCARD_EXCEPTION\020\237\001\022\n\n\005YIELD\020\240\001\022\025\n\020GENE"
+      "RATOR_RETURN\020\241\001\022\016\n\tFAST_CALL\020\242\001\022\r\n\010FAST_"
+      "RET\020\243\001\022\022\n\rRECV_VARIADIC\020\244\001\022\020\n\013SEND_UNPAC"
+      "K\020\245\001\022\010\n\003POW\020\246\001\022\017\n\nASSIGN_POW\020\247\001\022\020\n\013BIND_"
+      "GLOBAL\020\250\001\022\r\n\010COALESCE\020\251\001\022\016\n\tSPACESHIP\020\252\001"
+      "\022\027\n\022DECLARE_ANON_CLASS\020\253\001\022!\n\034DECLARE_ANO"
+      "N_INHERITED_CLASS\020\254\001\022\030\n\023FETCH_STATIC_PRO"
+      "P_R\020\255\001\022\030\n\023FETCH_STATIC_PROP_W\020\256\001\022\031\n\024FETC"
+      "H_STATIC_PROP_RW\020\257\001\022\031\n\024FETCH_STATIC_PROP"
+      "_IS\020\260\001\022\037\n\032FETCH_STATIC_PROP_FUNC_ARG\020\261\001\022"
+      "\034\n\027FETCH_STATIC_PROP_UNSET\020\262\001\022\026\n\021UNSET_S"
+      "TATIC_PROP\020\263\001\022\036\n\031ISSET_ISEMPTY_STATIC_PR"
+      "OP\020\264\001\022\031\n\024FETCH_CLASS_CONSTANT\020\265\001\022\021\n\014BIND"
+      "_LEXICAL\020\266\001\022\020\n\013BIND_STATIC\020\267\001\022\017\n\nFETCH_T"
+      "HIS\020\270\001\022\027\n\022ISSET_ISEMPTY_THIS\020\272\001"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 3653);
+      descriptor, 3671);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "zend_op_array.proto", &protobuf_RegisterTypes);
   ::gphp::protobuf_zend_5ftypes_2eproto::AddDescriptors();
@@ -1285,6 +1287,7 @@ void Opline::set_lineno(::google::protobuf::uint32 value) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ZendOpArray::kOpcodesFieldNumber;
 const int ZendOpArray::kLiteralsFieldNumber;
+const int ZendOpArray::kVarSizeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ZendOpArray::ZendOpArray()
@@ -1303,11 +1306,13 @@ ZendOpArray::ZendOpArray(const ZendOpArray& from)
       opcodes_(from.opcodes_),
       literals_(from.literals_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  var_size_ = from.var_size_;
   // @@protoc_insertion_point(copy_constructor:gphp.ZendOpArray)
 }
 
 void ZendOpArray::SharedCtor() {
   _cached_size_ = 0;
+  var_size_ = 0u;
 }
 
 ZendOpArray::~ZendOpArray() {
@@ -1349,6 +1354,7 @@ void ZendOpArray::Clear() {
 
   opcodes_.Clear();
   literals_.Clear();
+  var_size_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -1381,6 +1387,20 @@ bool ZendOpArray::MergePartialFromCodedStream(
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_literals()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required uint32 var_size = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+          set_has_var_size();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &var_size_)));
         } else {
           goto handle_unusual;
         }
@@ -1427,6 +1447,12 @@ void ZendOpArray::SerializeWithCachedSizes(
       2, this->literals(static_cast<int>(i)), output);
   }
 
+  cached_has_bits = _has_bits_[0];
+  // required uint32 var_size = 3;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->var_size(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -1457,6 +1483,12 @@ void ZendOpArray::SerializeWithCachedSizes(
         2, this->literals(static_cast<int>(i)), deterministic, target);
   }
 
+  cached_has_bits = _has_bits_[0];
+  // required uint32 var_size = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->var_size(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -1473,6 +1505,12 @@ size_t ZendOpArray::ByteSizeLong() const {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
+  }
+  // required uint32 var_size = 3;
+  if (has_var_size()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->var_size());
   }
   // repeated .gphp.Opline opcodes = 1;
   {
@@ -1527,6 +1565,9 @@ void ZendOpArray::MergeFrom(const ZendOpArray& from) {
 
   opcodes_.MergeFrom(from.opcodes_);
   literals_.MergeFrom(from.literals_);
+  if (from.has_var_size()) {
+    set_var_size(from.var_size());
+  }
 }
 
 void ZendOpArray::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1544,6 +1585,7 @@ void ZendOpArray::CopyFrom(const ZendOpArray& from) {
 }
 
 bool ZendOpArray::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->opcodes())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->literals())) return false;
   return true;
@@ -1557,6 +1599,7 @@ void ZendOpArray::InternalSwap(ZendOpArray* other) {
   using std::swap;
   opcodes_.InternalSwap(&other->opcodes_);
   literals_.InternalSwap(&other->literals_);
+  swap(var_size_, other->var_size_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -1628,6 +1671,30 @@ const ::google::protobuf::RepeatedPtrField< ::gphp::Zval >&
 ZendOpArray::literals() const {
   // @@protoc_insertion_point(field_list:gphp.ZendOpArray.literals)
   return literals_;
+}
+
+// required uint32 var_size = 3;
+bool ZendOpArray::has_var_size() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void ZendOpArray::set_has_var_size() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void ZendOpArray::clear_has_var_size() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void ZendOpArray::clear_var_size() {
+  var_size_ = 0u;
+  clear_has_var_size();
+}
+::google::protobuf::uint32 ZendOpArray::var_size() const {
+  // @@protoc_insertion_point(field_get:gphp.ZendOpArray.var_size)
+  return var_size_;
+}
+void ZendOpArray::set_var_size(::google::protobuf::uint32 value) {
+  set_has_var_size();
+  var_size_ = value;
+  // @@protoc_insertion_point(field_set:gphp.ZendOpArray.var_size)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

@@ -188,7 +188,7 @@ void AddDescriptorsImpl() {
       "RENCE\020\n\"\321\001\n\tHashTable\022#\n\005items\030\001 \003(\0132\024.g"
       "php.HashTable.Item\032\236\001\n\004Item\022.\n\010key_type\030"
       "\001 \002(\0162\034.gphp.HashTable.Item.KeyType\022\017\n\007s"
-      "tr_key\030\002 \001(\t\022\017\n\007num_key\030\003 \001(\004\022\027\n\003val\030\004 \002"
+      "tr_key\030\002 \001(\t\022\017\n\007num_key\030\003 \001(\003\022\027\n\003val\030\004 \002"
       "(\0132\n.gphp.Zval\"+\n\007KeyType\022\017\n\013KEYTYPE_STR"
       "\020\001\022\017\n\013KEYTYPE_NUM\020\002"
   };
@@ -1389,7 +1389,7 @@ void HashTable_Item::Clear() {
     }
   }
   if (cached_has_bits & 12u) {
-    num_key_ = GOOGLE_ULONGLONG(0);
+    num_key_ = GOOGLE_LONGLONG(0);
     key_type_ = 1;
   }
   _has_bits_.Clear();
@@ -1442,13 +1442,13 @@ bool HashTable_Item::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint64 num_key = 3;
+      // optional int64 num_key = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
           set_has_num_key();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &num_key_)));
         } else {
           goto handle_unusual;
@@ -1511,9 +1511,9 @@ void HashTable_Item::SerializeWithCachedSizes(
       2, this->str_key(), output);
   }
 
-  // optional uint64 num_key = 3;
+  // optional int64 num_key = 3;
   if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->num_key(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->num_key(), output);
   }
 
   // required .gphp.Zval val = 4;
@@ -1554,9 +1554,9 @@ void HashTable_Item::SerializeWithCachedSizes(
         2, this->str_key(), target);
   }
 
-  // optional uint64 num_key = 3;
+  // optional int64 num_key = 3;
   if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->num_key(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->num_key(), target);
   }
 
   // required .gphp.Zval val = 4;
@@ -1622,10 +1622,10 @@ size_t HashTable_Item::ByteSizeLong() const {
         this->str_key());
   }
 
-  // optional uint64 num_key = 3;
+  // optional int64 num_key = 3;
   if (has_num_key()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->num_key());
   }
 
@@ -1810,7 +1810,7 @@ void HashTable_Item::set_allocated_str_key(::std::string* str_key) {
   // @@protoc_insertion_point(field_set_allocated:gphp.HashTable.Item.str_key)
 }
 
-// optional uint64 num_key = 3;
+// optional int64 num_key = 3;
 bool HashTable_Item::has_num_key() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1821,14 +1821,14 @@ void HashTable_Item::clear_has_num_key() {
   _has_bits_[0] &= ~0x00000004u;
 }
 void HashTable_Item::clear_num_key() {
-  num_key_ = GOOGLE_ULONGLONG(0);
+  num_key_ = GOOGLE_LONGLONG(0);
   clear_has_num_key();
 }
-::google::protobuf::uint64 HashTable_Item::num_key() const {
+::google::protobuf::int64 HashTable_Item::num_key() const {
   // @@protoc_insertion_point(field_get:gphp.HashTable.Item.num_key)
   return num_key_;
 }
-void HashTable_Item::set_num_key(::google::protobuf::uint64 value) {
+void HashTable_Item::set_num_key(::google::protobuf::int64 value) {
   set_has_num_key();
   num_key_ = value;
   // @@protoc_insertion_point(field_set:gphp.HashTable.Item.num_key)

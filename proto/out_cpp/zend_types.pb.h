@@ -574,12 +574,12 @@ class HashTable_Item : public ::google::protobuf::Message /* @@protoc_insertion_
   ::gphp::Zval* release_val();
   void set_allocated_val(::gphp::Zval* val);
 
-  // optional uint64 num_key = 3;
+  // optional int64 num_key = 3;
   bool has_num_key() const;
   void clear_num_key();
   static const int kNumKeyFieldNumber = 3;
-  ::google::protobuf::uint64 num_key() const;
-  void set_num_key(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 num_key() const;
+  void set_num_key(::google::protobuf::int64 value);
 
   // required .gphp.HashTable.Item.KeyType key_type = 1;
   bool has_key_type() const;
@@ -607,7 +607,7 @@ class HashTable_Item : public ::google::protobuf::Message /* @@protoc_insertion_
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr str_key_;
   ::gphp::Zval* val_;
-  ::google::protobuf::uint64 num_key_;
+  ::google::protobuf::int64 num_key_;
   int key_type_;
   friend struct protobuf_zend_5ftypes_2eproto::TableStruct;
 };
@@ -1084,7 +1084,7 @@ inline void HashTable_Item::set_allocated_str_key(::std::string* str_key) {
   // @@protoc_insertion_point(field_set_allocated:gphp.HashTable.Item.str_key)
 }
 
-// optional uint64 num_key = 3;
+// optional int64 num_key = 3;
 inline bool HashTable_Item::has_num_key() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1095,14 +1095,14 @@ inline void HashTable_Item::clear_has_num_key() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void HashTable_Item::clear_num_key() {
-  num_key_ = GOOGLE_ULONGLONG(0);
+  num_key_ = GOOGLE_LONGLONG(0);
   clear_has_num_key();
 }
-inline ::google::protobuf::uint64 HashTable_Item::num_key() const {
+inline ::google::protobuf::int64 HashTable_Item::num_key() const {
   // @@protoc_insertion_point(field_get:gphp.HashTable.Item.num_key)
   return num_key_;
 }
-inline void HashTable_Item::set_num_key(::google::protobuf::uint64 value) {
+inline void HashTable_Item::set_num_key(::google::protobuf::int64 value) {
   set_has_num_key();
   num_key_ = value;
   // @@protoc_insertion_point(field_set:gphp.HashTable.Item.num_key)
