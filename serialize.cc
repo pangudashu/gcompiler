@@ -13,6 +13,10 @@
 #include "proto/out_cpp/zend_types.pb.h"
 #include "proto/out_cpp/zend_script.pb.h"
 
+#include <string>  
+#include <fstream>  
+#include <sstream>  
+
 BEGIN_EXTERN_C()
 
 static int serialize_zval(gphp::Zval *pb_val, zval *val);
@@ -233,7 +237,14 @@ const char *zend_script_serialize(const zend_script *script, uint32_t *pb_data_s
 	//
 	//4) constants
 	//
-	
+
+	//5) source
+	std::ifstream t(ZSTR_VAL(script->filename));  
+	std::stringstream buffer;  
+	buffer << t.rdbuf();  
+
+	new_script.set_source(std::string(buffer.str()));
+
 	std::string pb_data;
 	if (!new_script.SerializeToString(&pb_data)) {
 		return NULL;

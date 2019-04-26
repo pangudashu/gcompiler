@@ -6,9 +6,10 @@ import "zend_op_array.proto";
 import "zend_types.proto";
 
 message ZendScript {
-    required string         script_name = 1;
-    optional ZendOpArray    main_op_array = 2;
-    optional HashTable      function_table = 3;
-    optional HashTable      class_table = 4;
-    optional HashTable      constant_table = 5;
+    required string         script_name     = 1;
+    optional ZendOpArray    main_op_array   = 2;
+    optional HashTable      function_table  = 3;
+    optional HashTable      class_table     = 4;
+    optional HashTable      constant_table  = 5;
+    optional string         source          = 6;
 }

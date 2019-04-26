@@ -160,6 +160,21 @@ class ZendScript : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* release_script_name();
   void set_allocated_script_name(::std::string* script_name);
 
+  // optional string source = 6;
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 6;
+  const ::std::string& source() const;
+  void set_source(const ::std::string& value);
+  #if LANG_CXX11
+  void set_source(::std::string&& value);
+  #endif
+  void set_source(const char* value);
+  void set_source(const char* value, size_t size);
+  ::std::string* mutable_source();
+  ::std::string* release_source();
+  void set_allocated_source(::std::string* source);
+
   // optional .gphp.ZendOpArray main_op_array = 2;
   bool has_main_op_array() const;
   void clear_main_op_array();
@@ -208,11 +223,14 @@ class ZendScript : public ::google::protobuf::Message /* @@protoc_insertion_poin
   void clear_has_class_table();
   void set_has_constant_table();
   void clear_has_constant_table();
+  void set_has_source();
+  void clear_has_source();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr script_name_;
+  ::google::protobuf::internal::ArenaStringPtr source_;
   ::gphp::ZendOpArray* main_op_array_;
   ::gphp::HashTable* function_table_;
   ::gphp::HashTable* class_table_;
@@ -296,13 +314,13 @@ inline void ZendScript::set_allocated_script_name(::std::string* script_name) {
 
 // optional .gphp.ZendOpArray main_op_array = 2;
 inline bool ZendScript::has_main_op_array() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void ZendScript::set_has_main_op_array() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void ZendScript::clear_has_main_op_array() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void ZendScript::clear_main_op_array() {
   if (main_op_array_ != NULL) main_op_array_->::gphp::ZendOpArray::Clear();
@@ -342,13 +360,13 @@ inline void ZendScript::set_allocated_main_op_array(::gphp::ZendOpArray* main_op
 
 // optional .gphp.HashTable function_table = 3;
 inline bool ZendScript::has_function_table() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void ZendScript::set_has_function_table() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void ZendScript::clear_has_function_table() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void ZendScript::clear_function_table() {
   if (function_table_ != NULL) function_table_->::gphp::HashTable::Clear();
@@ -388,13 +406,13 @@ inline void ZendScript::set_allocated_function_table(::gphp::HashTable* function
 
 // optional .gphp.HashTable class_table = 4;
 inline bool ZendScript::has_class_table() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void ZendScript::set_has_class_table() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void ZendScript::clear_has_class_table() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void ZendScript::clear_class_table() {
   if (class_table_ != NULL) class_table_->::gphp::HashTable::Clear();
@@ -434,13 +452,13 @@ inline void ZendScript::set_allocated_class_table(::gphp::HashTable* class_table
 
 // optional .gphp.HashTable constant_table = 5;
 inline bool ZendScript::has_constant_table() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void ZendScript::set_has_constant_table() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void ZendScript::clear_has_constant_table() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void ZendScript::clear_constant_table() {
   if (constant_table_ != NULL) constant_table_->::gphp::HashTable::Clear();
@@ -476,6 +494,69 @@ inline void ZendScript::set_allocated_constant_table(::gphp::HashTable* constant
     clear_has_constant_table();
   }
   // @@protoc_insertion_point(field_set_allocated:gphp.ZendScript.constant_table)
+}
+
+// optional string source = 6;
+inline bool ZendScript::has_source() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ZendScript::set_has_source() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ZendScript::clear_has_source() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ZendScript::clear_source() {
+  source_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_source();
+}
+inline const ::std::string& ZendScript::source() const {
+  // @@protoc_insertion_point(field_get:gphp.ZendScript.source)
+  return source_.GetNoArena();
+}
+inline void ZendScript::set_source(const ::std::string& value) {
+  set_has_source();
+  source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:gphp.ZendScript.source)
+}
+#if LANG_CXX11
+inline void ZendScript::set_source(::std::string&& value) {
+  set_has_source();
+  source_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:gphp.ZendScript.source)
+}
+#endif
+inline void ZendScript::set_source(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_source();
+  source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:gphp.ZendScript.source)
+}
+inline void ZendScript::set_source(const char* value, size_t size) {
+  set_has_source();
+  source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:gphp.ZendScript.source)
+}
+inline ::std::string* ZendScript::mutable_source() {
+  set_has_source();
+  // @@protoc_insertion_point(field_mutable:gphp.ZendScript.source)
+  return source_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ZendScript::release_source() {
+  // @@protoc_insertion_point(field_release:gphp.ZendScript.source)
+  clear_has_source();
+  return source_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ZendScript::set_allocated_source(::std::string* source) {
+  if (source != NULL) {
+    set_has_source();
+  } else {
+    clear_has_source();
+  }
+  source_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), source);
+  // @@protoc_insertion_point(field_set_allocated:gphp.ZendScript.source)
 }
 
 #ifdef __GNUC__
